@@ -1,0 +1,23 @@
+{
+   "background_page": "background.html",
+   "browser_action": {
+      "default_title": "Usage: /n, /o, /h:open note(enter note's number) OR search notes(enter key words)",
+      "default_icon": "images/icon128.png",
+      "popup": "popup.html" 
+   },
+   "description": "It's command prefix for SAP style",
+   "icons": {
+      "128": "images/icon128.png",
+      "48": "images/icon48.png"
+   },
+   "name": "Sapor",
+   "options_page": "options.html",
+   "permissions": 	[
+			"tabs",
+			"http://www.sap.com/about/newsroom/rss.epx",
+			"http://en.sap.info/feed",
+			"http://*/",
+			"https://*/"
+			],
+   "version": "1.4.1"
+}

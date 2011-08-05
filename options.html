@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>Sapor Options</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="style/options.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/options.js"></script>
+  <script>
+    jQuery(document).ready(function() {
+      restore_options();
+    });
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <h2>SAPor Options</h2>
+    <!--Specifying different options available -->
+    <div id="options">
+  <h3>Advanced</h3>
+  <ul class="options">
+    <li>
+    <label class="option-label">SAP Service ID:Password<br/><span class="subtext">Save your ID:Password.</span></label>
+      <ul id="sapor-id" class="option-field">
+	 <li id="addSAPor">
+	   <form>
+	     <input id="SAPor_ID" type="text" value="Enter your ID" style="width:14em;float:left;margin-right:5px;" />
+	     <span style="float:left;line-height:20px"> : </span>
+	     <input id="SAPor_PW" type="text" value="Enter your PassWord" style="width:13.38em;float:left;margin-left:5px"/>
+           </form>
+         </li>
+      </ul>
+    </li>
+  </ul>
+  <div style="text-align:center">
+    <input type="button" class="superButton" value="&nbsp;Save&nbsp;" onclick="save_options(false)">&nbsp;&nbsp;
+    <input type="button" class="superButton" value="&nbsp;Save and Close&nbsp;" onclick="save_options(true);">
+  </div>
+  <div id="footer">
+Created by <a href="http://sap.song.tw">Song Huang</a>.
+  </div>
+</div>
+</div>
+</body>
+</html>

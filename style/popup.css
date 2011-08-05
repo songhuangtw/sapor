@@ -1,0 +1,215 @@
+body {
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	background: #cbd5e1;
+	font: normal normal normal 70%/120% tahoma, helvetica, sans-serif;
+	color: #333;
+	font-size: 10px;
+}
+  
+input {
+	float: left; 
+	position: choice; 
+	top: 0px; 
+	left: 20px;
+}
+
+em {
+	font-family:verdana, helvetica, sans-serif;
+}
+
+.cmdform {
+	position:	absolute;
+	left:		40px;
+	top:		7px;
+	width:		200px;
+	height:		20px;
+	border:		1px solid #E3E3E3;
+	background-color:	white;
+	padding:	0px;
+	margin:		0px;
+}
+
+.cmdBox{
+	float:		left;
+	border:		0px;
+	padding: 	5px 18px 5px 5px;
+	background-color:	transparent; /*important*/
+	position:	absolute; /*important*/
+	top:		0px;
+	left:		0px;
+	width:		200px;
+	height:		20px;
+}
+
+.cmdhistory {
+	border:0px; /*important*/
+	background-color:transparent; /*important*/
+	position:absolute; /*important*/
+	top:2px;
+	left:185px;
+	width:15px;
+	height:15px;
+}
+
+h4 {
+	background: url('../images/link.gif') no-repeat;
+	font-size: 0.9em;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	padding: 0px 0px 0px 27px;
+}
+
+a:link, a:visited {
+	color: #04357B;
+	text-decoration: underline;
+}
+
+a.url:link, a.url:visited {
+	color: #555;
+	font: normal normal normal 0.8em/normal verdana, helvetica, sans-serif;
+	text-decoration: none;
+}
+
+p {
+	line-height: 1em;
+	font: normal normal normal 0.7em/normal verdana, helvetica, sans-serif;
+	padding: 2px 0px;
+}
+
+ul {
+	list-style-type: square;
+	margin: 0px 16px;
+}
+
+table {
+	border-spacing:		0px;
+	border-collapse:	separate;
+	width:			350px;
+}
+
+table li {
+	line-height: 1.3em;
+	font: normal normal normal 0.8em/normal verdana, helvetica, sans-serif;
+	padding: 2px 0px;
+}
+
+#cmdline td {
+	border-top:	3px solid #ff9900;
+	color:		#555;
+	margin:		0px;
+	padding:	5px 10px 5px 10px;
+	vertical-align:	center;
+}
+
+#cmdline td.cell1 {
+	background-image: url('../images/slide-left.png');
+	background-repeat: repeat-y;
+	background-position: left;
+}
+
+#slide{
+	background-image: url('../images/slide.png');
+	background-repeat: repeat-x;
+	background-position: center;
+}
+
+#content td {
+	background: white;
+	color: #555;
+	margin: 10px;
+	padding: 0px 10px;
+	vertical-align: top;
+}
+
+#content td.bordered {
+	border:   8px solid #E3E3E3;
+}
+
+#ajaxBusy {
+	display:	none;
+	margin:		0px;
+	padding-Left: 	35%;
+	padding-Top:	10%;
+	width:		auto;
+}
+
+* {
+	margin:		0px;
+	padding:	0px;
+	outline:	none;
+}
+
+table, img, td {
+	border: none;
+}
+
+img.icon {
+	border:	1px solid #cbd5e1;
+	float: left; 
+	position: choice; 
+	top: 0px; 
+	left: 0px;
+}
+
+img.icon:hover {
+	border-top:	1px solid #fff;
+	border-right:	1px solid #999;
+	border-bottom:	1px solid #999;
+	border-left:	1px solid #fff;
+	border-bottom-left-radius:	2px 2px;
+	border-bottom-right-radius:	2px 2px;
+	border-top-left-radius:		2px 2px;
+	border-top-right-radius:	2px 2px;
+}
+
+/* JQuery AutoComplete CSS */
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('../images/indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}

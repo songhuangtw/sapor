@@ -1,0 +1,41 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style/popup.css"/>
+	<script src="js/jquery.js"></script>
+	<script src="js/autocomplete.js"></script>
+	<script src="js/jquery.jfeed.js"></script>
+	<script src="js/popup.js"></script>
+	<script src="js/sapor.js"></script>
+	<script>
+		jQuery(document).ready(function() {
+				jQuery('#bordered').html(localStorage["#bordered"]);
+		});
+	</script>
+</head>
+<body onLoad="document.Sapor.cmd.focus();">
+	<table>
+		<!-- Command Line -->
+		<tr id="cmdline">
+			<td height="12" class="cell1">
+				<img src="images/icon.png" onclick="click()" class="icon">
+			</td>
+			<td height="12">
+				<div class="cmdform">
+				<form name="Sapor" onsubmit="click()">
+					<input type="text" size="25" id="cmd" class="cmdBox">
+				</form>
+				<input type="image" src="images/cmd-bg.png" class="cmdhistory">
+				<script>cmdhistory();</script>
+				</div>
+			</td>
+		</tr>
+		<!-- Line -->
+		<tr height="5px"><td colspan="2" id="slide">  </td></tr>
+		<!-- SAP News -->
+		<tr id="content">
+			<td colspan="2" class="bordered" id="bordered">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

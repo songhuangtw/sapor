@@ -1,0 +1,111 @@
+//Add listener to respond to requests from content script
+chrome.extension.onRequest.addListener(
+	function(request, sender, sendResponse) {
+		if(request.value == "currtab") {
+			chrome.windows.getCurrent(function(Win) {
+				chrome.tabs.getSelected(Win.id, function(Tab) { 
+					chrome.tabs.update( Tab.id, {url: request.url});
+				});
+			});
+		}
+		else {
+			chrome.tabs.create({url: request.url, selected: true});
+		};
+		sendResponse({});
+	}
+);
+
+function rssStore() {
+/*	
+		url: 'http://www.sap.com/about/newsroom/rss.epx',
+*/
+	jQuery.getFeed({
+		url: 'http://en.sap.info/feed',
+		success: function(feed) {
+			var cTime 	= new Date();
+			var cyear	= cTime.getFullYear();
+			var cmonth	= cTime.getMonth() + 1;
+			var cday 	= cTime.getDate();
+			var chours	= cTime.getHours();
+			var cminutes	= cTime.getMinutes();
+			if (cminutes < 10) {
+				cminutes = '0' + cminutes;
+			};
+			html =    '<h4>'
+				+ '<a href="' + feed.link + '"'
+					+ 'onclick="document.getElementById(&#34;cmd&#34;).value=&#34;/o'
+					+ feed.link
+					+ '&#34;;click();">'
+				+ feed.title
+				+ '</a>'
+				+ '<p><a href="" onclick="rssUpdate();">Update: '
+				+ cyear + '/' + cmonth + '/' + cday + ' '
+				+ chours + ':' + cminutes + '</a></p>'
+				+ '</h4>';
+
+			html += '<ul>';
+			for(var i = 0; i < feed.items.length && i < 20; i++) {
+				var item = feed.items[i];
+				html += '<li>'
+					+ '<a href="' + item.link + '"'
+					+ 'onclick="document.getElementById(&#34;cmd&#34;).value=&#34;/o'
+					+ item.link
+					+ '&#34;;click();">'
+					+ item.title
+					+ '</a>'
+					+ '</li>';
+				html += '<p>'
+					+ item.updated
+					+ '</p>';
+			}
+			localStorage["#bordered"] = html;
+		}
+	});
+}
+
+function rssUpdate() {
+	jQuery.getFeed({
+		url: 'http://en.sap.info/feed',
+		success: function(feed) {
+			var cTime 	= new Date();
+			var cyear	= cTime.getFullYear();
+			var cmonth	= cTime.getMonth() + 1;
+			var cday 	= cTime.getDate();
+			var chours	= cTime.getHours();
+			var cminutes	= cTime.getMinutes();
+			if (cminutes < 10) {
+				cminutes = '0' + cminutes;
+			};
+			html =    '<h4>'
+				+ '<a href="' + feed.link + '"'
+					+ 'onclick="document.getElementById(&#34;cmd&#34;).value=&#34;/o'
+					+ feed.link
+					+ '&#34;;click();">'
+				+ feed.title
+				+ '</a>'
+				+ '<p><a href="" onclick="rssUpdate();">Update: '
+				+ cyear + '/' + cmonth + '/' + cday + ' '
+				+ chours + ':' + cminutes + '</a></p>'
+				+ '</h4>';
+
+			html += '<ul>';
+			for(var i = 0; i < feed.items.length && i < 20; i++) {
+				var item = feed.items[i];
+				html += '<li>'
+					+ '<a href="' + item.link + '"'
+					+ 'onclick="document.getElementById(&#34;cmd&#34;).value=&#34;/o'
+					+ item.link
+					+ '&#34;;click();">'
+					+ item.title
+					+ '</a>'
+					+ '</li>';
+				html += '<p>'
+					+ item.updated
+					+ '</p>';
+			}
+			localStorage["#bordered"] = html;
+		}
+	});
+	var popups = chrome.extension.getViews({type: "popup"});
+	popups[0].$("#bordered").html("update...");
+}
